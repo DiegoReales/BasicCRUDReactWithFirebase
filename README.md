@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# CRUD Básico React con Firebase
+**Estudiante:** Diego Reales
+
+Deploy Netlify [https://dapper-narwhal-770cda.netlify.app](https://dapper-narwhal-770cda.netlify.app)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
