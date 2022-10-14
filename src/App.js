@@ -37,11 +37,25 @@ function App() {
   }
 
   const deleteContact = async (payload) => {
-    try {
-      await deleteDoc(doc(db, "contacts", payload));
-    } catch (e) {
-      console.log(e)
-    }
+    Swal.fire({
+      text: '¿Estas seguro de eliminar el contacto?',
+      icon: 'question',
+      customClass: { confirmButton: 'btn btn-danger' },
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No',
+      showLoaderOnConfirm: true,
+      preConfirm: async () => {
+        try {
+          await deleteDoc(doc(db, "contacts", payload));
+          return true;
+        } catch (e) {
+          console.log(e)
+          return false;
+        }
+      },
+      allowOutsideClick: () => !Swal.isLoading(),
+    })
   }
 
   const updateContact = async (payload) => {
