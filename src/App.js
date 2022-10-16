@@ -5,6 +5,7 @@ import {collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc} from "firebas
 import ContactForm from "./Components/ContactForm";
 import {Button, Card} from "react-bootstrap";
 import Swal from "sweetalert2";
+import RandomImage from './Components/RandomImage';
 
 function App() {
   const [value, setValue] = useState({});
@@ -103,55 +104,63 @@ function App() {
           show={show}
           onHide={handleClose}
         />
-        <Card>
-          <Card.Header className="d-flex justify-content-between align-items-center">
-            <Card.Title>Lista de Contactos</Card.Title>
-            <Button variant="success" onClick={newContact}>Agregar</Button>
-          </Card.Header>
-          <div className="table-responsive">
-            <table className="table table-stripped">
-              <thead>
-                <tr>
-                  <td>No. Identificación</td>
-                  <td>Nombre</td>
-                  <td>Apellido</td>
-                  <td>Celular</td>
-                  <td>Dirección</td>
-                  <td>Correo</td>
-                  <td>Cargo</td>
-                  <td>Acciones</td>
-                </tr>
-              </thead>
-              <tbody>
-              {contacts.map((c, i) =>
-                <tr key={i}>
-                  <td>{c.dni}</td>
-                  <td>{c.name}</td>
-                  <td>{c.lastname}</td>
-                  <td>{c.phone}</td>
-                  <td>{c.address}</td>
-                  <td>{c.email}</td>
-                  <td>{c.jobtitle}</td>
-                  <td>
-                    <button type="button"
-                            className="btn btn-sm btn-warning mx-1"
-                            onClick={() => editContact(c.id)}
-                    >
-                      Editar
-                    </button>
-                    <button type="button"
-                            className="btn btn-sm btn-danger mx-1"
-                            onClick={() => deleteContact(c.id)}
-                    >
-                      Remover
-                    </button>
-                  </td>
-                </tr>
-              )}
-              </tbody>
-            </table>
+        <div className="row">
+          <div className="col-12 col-lg-9">
+            <Card>
+              <Card.Header className="d-flex justify-content-between align-items-center">
+                <Card.Title>Lista de Contactos</Card.Title>
+                <Button variant="success" onClick={newContact}>Agregar</Button>
+              </Card.Header>
+              <div className="table-responsive">
+                <table className="table table-stripped">
+                  <thead>
+                    <tr>
+                      <td>No. Identificación</td>
+                      <td>Nombre</td>
+                      <td>Apellido</td>
+                      <td>Celular</td>
+                      <td>Dirección</td>
+                      <td>Correo</td>
+                      <td>Cargo</td>
+                      <td>Acciones</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {contacts.map((c, i) =>
+                    <tr key={i}>
+                      <td>{c.dni}</td>
+                      <td>{c.name}</td>
+                      <td>{c.lastname}</td>
+                      <td>{c.phone}</td>
+                      <td>{c.address}</td>
+                      <td>{c.email}</td>
+                      <td>{c.jobtitle}</td>
+                      <td>
+                        <button type="button"
+                                className="btn btn-sm btn-warning mx-1"
+                                onClick={() => editContact(c.id)}
+                        >
+                          Editar
+                        </button>
+                        <button type="button"
+                                className="btn btn-sm btn-danger mx-1"
+                                onClick={() => deleteContact(c.id)}
+                        >
+                          Remover
+                        </button>
+                      </td>
+                    </tr>
+                  )}
+                  </tbody>
+                </table>
+              </div>
+            </Card>
           </div>
-        </Card>
+          <div className="col-12 col-lg-3">
+            <RandomImage enableChange />
+          </div>
+        </div>
+        
       </header>
     </div>
   );
