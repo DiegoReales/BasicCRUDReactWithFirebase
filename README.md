@@ -2,7 +2,7 @@
 **Estudiante:** Diego Reales
 
 Deploy Netlify [https://dapper-narwhal-770cda.netlify.app](https://dapper-narwhal-770cda.netlify.app)
-
+Deploy Amplify [https://main.d3bsw93cebu684.amplifyapp.com](https://main.d3bsw93cebu684.amplifyapp.com/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
